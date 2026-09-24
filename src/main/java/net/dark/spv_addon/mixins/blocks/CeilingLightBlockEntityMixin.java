@@ -27,8 +27,7 @@ public abstract class CeilingLightBlockEntityMixin {
     /**
      * Injects additional logic into the tick method at the tail end.
      */
-    @Inject(method = "tick(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;)V",
-            at = @At("TAIL"), remap = false)
+    @Inject(method = "tick", at = @At("TAIL"))
     private void tickInject(World world, BlockPos pos, BlockState state, CallbackInfo ci) {
         if (world.isClient && light != null) {
             if (world.getRegistryKey().equals(BackroomsLevels.LEVEL_KITTY_WORLD_KEY)) {
