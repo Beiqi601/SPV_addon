@@ -13,6 +13,10 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: gradle
+      - name: Generate Gradle Wrapper
+        uses: gradle/actions/setup-gradle@v3
+      - name: Generate wrapper scripts
+        run: gradle wrapper
       - name: Make gradlew executable
         run: chmod +x ./gradlew
       - name: Build
